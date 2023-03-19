@@ -17,7 +17,7 @@ class GarageDoorOpenCommandImplTest {
 		.build();
 
 	@Test
-	void testGaraDoorOoenCommand() {
+	void testGarageDoorOpenCommand() {
 		assertThat(command.execute()).isEqualTo("Open garage door");
 	}
 }

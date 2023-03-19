@@ -2,25 +2,40 @@ package com.pattern.command.commandpattern.model;
 
 import com.pattern.command.commandpattern.execute.Command;
 import lombok.Builder;
-import org.springframework.stereotype.Component;
 
 /**
  * @author Patrick Dzvoti
  * Initial 12/03/2023 - 23:59
  */
-@Component
+
+
 @Builder(toBuilder = true)
 public class RemoteControlModel {
 
-	private final Command command;
+	private final Command[] onCommands;
+	private final Command[] offCommands ;
 
-	public RemoteControlModel(Command command) {
-		this.command = command;
+	public RemoteControlModel(Command[] onCommands, Command[] offCommands) {
+		this.onCommands = onCommands;
+		this.offCommands = offCommands;
 	}
 
-	public String buttonWasPressed() {
-		return command.execute();
+//	public RemoteControlModel(){
+//		onCommands = new Command[7];
+//		offCommands = new Command[7];
+//	}
+
+	public void setCommand(int slot, Command onCommand, Command offCommand) {
+		onCommands[slot] = onCommand;
+		offCommands[slot] = offCommand;
 	}
 
+	public String onButtonWasPressed(int slot) {
+		return onCommands[slot].execute();
+	}
+
+	public String offButtonPressed(int slot) {
+		return offCommands[slot].execute();
+	}
 
 }

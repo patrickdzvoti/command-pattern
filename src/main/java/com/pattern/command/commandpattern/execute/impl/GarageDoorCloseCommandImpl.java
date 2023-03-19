@@ -4,13 +4,11 @@ import com.pattern.command.commandpattern.execute.Command;
 import com.pattern.command.commandpattern.model.GarageDoor;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Patrick Dzvoti
  * Initial 19/03/2023 - 01:28
  */
-@Service
 @RequiredArgsConstructor
 @Builder
 public class GarageDoorCloseCommandImpl implements Command {
